@@ -5,9 +5,14 @@ import twilio from "twilio";
 const app = express();
 app.use(express.json());
 
-const accountSid = process.env.TWILIO_ACCOUNT_SID!;
-const authToken = process.env.TWILIO_AUTH_TOKEN!;
-const verifySid = "VA6f15a1907e64e63b1f78f85a44a95743";
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
+const verifySid = process.env.TWILIO_VERIFY_SID;
+
+if (!accountSid || !authToken || !verifySid) {
+  console.error("Missing required environment variables: TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_VERIFY_SID");
+  process.exit(1);
+}
 
 const client = twilio(accountSid, authToken);
 

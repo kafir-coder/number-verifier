@@ -7,4 +7,5 @@ services:
       - PORT=3000
       - TWILIO_ACCOUNT_SID=${TWILIO_ACCOUNT_SID}
       - TWILIO_AUTH_TOKEN=${TWILIO_AUTH_TOKEN}
+      - TWILIO_VERIFY_SID=${TWILIO_VERIFY_SID}
     restart: unless-stopped
