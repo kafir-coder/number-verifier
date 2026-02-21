@@ -1,8 +1,10 @@
 import "dotenv/config";
 import express from "express";
+import cors from "cors";
 import twilio from "twilio";
 
 const app = express();
+app.use(cors({ origin: "https://www.livrodereclamacoes.org" }));
 app.use(express.json());
 
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
